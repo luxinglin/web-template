@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<a th:href="@{css/bootstrap.min.css}">Content路径,默认访问static下的css文件夹</a>-->
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<p th:text="'Hello！, ' + ${name} + '!'">3333</p>
+<div th:include="footer :: copyright"></div>
+</body>
+</html>

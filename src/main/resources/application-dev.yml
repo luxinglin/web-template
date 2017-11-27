@@ -1,0 +1,55 @@
+# dev env
+server:
+  port: 8080
+
+# Thymeleaf view template config
+# disable cache for dev
+spring:
+  thymeleaf:
+    cache: false
+
+# datasource
+  datasource:
+    continue-on-error: true
+    url: jdbc:mysql://localhost:3306/test-thymeleaf?useUnicode=true&characterEncoding=UTF-8&connectTimeout=60000&socketTimeout=60000&autoReconnect=true&autoReconnectForPools=true&failOverReadOnly=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    sql-script-encoding: utf-8
+    dbcp2:
+      test-on-borrow: true
+      validation-query: select 1
+      max-idle: 8
+      min-idle: 8
+      initial-size: 30
+      max-open-prepared-statements: 100
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+      naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    database: MySql
+    show-sql: true
+
+
+# message resource config
+# if true use system local and false to use baseName (e.g. 'messages')
+  messages:
+      fallback-to-system-locale: false
+
+# basic security
+security:
+  oauth2:
+    client:
+      client-id: client
+      client-secret: secret
+      scope: read,write
+      auto-approve-scopes: '.*'
+      grant-type: password
+  basic:
+    enabled: false
+
+logging:
+  level:
+    org.springframework.security: DEBUG
